@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Social Icons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #social-icons {
+      transition: top 0.3s ease;
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full bg-gray-800 text-white p-4 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-lg">My Navbar</div>
+    </div>
+  </nav>
+
+  <!-- Social Share Icons (initially on the side) -->
+  <div id="social-icons" class="fixed left-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
+    <a href="#" class="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 2.01L6 12l12 9.99V2.01z" />
+      </svg>
+    </a>
+    <a href="#" class="bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h4m0 0v4m0-4V8m0 4h4" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- Content -->
+  <div class="mt-16 p-8 space-y-6">
+    <div class="h-96 bg-gray-100">Content Section 1</div>
+    <div class="h-96 bg-gray-200">Content Section 2</div>
+    <div class="h-96 bg-gray-300">Content Section 3</div>
+  </div>
+
+  <script>
+    const socialIcons = document.getElementById('social-icons');
+    const navbar = document.querySelector('nav');
+    
+    window.addEventListener('scroll', () => {
+      const navbarHeight = navbar.offsetHeight;
+      if (window.scrollY > navbarHeight) {
+        socialIcons.style.top = `${navbarHeight + 60}px`;
+      } else {
+        socialIcons.style.top = '50%';
+      }
+    });
+  </script>
+</body>
+</html>
